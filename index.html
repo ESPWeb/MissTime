@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Time - Centro de Estética y Uñas en Manises</title>
+    
+    <!-- Google Fonts Import: Great Vibes and Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon: Fuchsia background with an elegant white 'M' -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23E5007E'/%3E%3Ctext x='50' y='72' font-family='Georgia, serif' font-size='60' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+    <style>
+        /* --- Color & Font Variables --- */
+        :root {
+            --charcoal-black: #222222;
+            --off-white: #F5F5F5;
+            --fuchsia: #E5007E;
+            --clean-white: #FFFFFF;
+            --soft-gray: #EAEAEA;
+            --font-body: 'Montserrat', sans-serif;
+            --font-display: 'Great Vibes', cursive;
+        }
+
+        body {
+            font-family: var(--font-body); margin: 0; padding: 0;
+            background-color: var(--clean-white); color: var(--charcoal-black);
+            line-height: 1.6; padding-bottom: 150px;
+        }
+
+        /* --- Header & Navigation (Compact) --- */
+        .header {
+            background-color: var(--charcoal-black); padding: 5px 20px; text-align: center;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .hamburger-icon .bar { background-color: var(--off-white); }
+        #nav-menu { background-color: var(--charcoal-black); }
+        #nav-menu a { color: var(--off-white); font-weight: bold; transition: color 0.3s; }
+        #nav-menu a:hover { color: var(--fuchsia); }
+        
+        /* --- General Section Styling (Compact) --- */
+        .section { padding: 25px 20px; text-align: center; }
+        .section-title {
+            font-size: 2em; color: var(--charcoal-black);
+            margin-top: 0; margin-bottom: 20px;
+            border-bottom: 2px solid var(--fuchsia);
+            display: inline-block; padding-bottom: 5px;
+        }
+        .bg-gray { background-color: var(--soft-gray); }
+
+        /* --- Hero/Title Section --- */
+        #titulo { padding: 30px 20px; }
+        .hero-title {
+            font-family: var(--font-display); font-size: 4.5em; font-weight: normal;
+            color: var(--charcoal-black); margin: 0;
+        }
+        .hero-subtitle {
+            font-size: 1.2em; color: var(--charcoal-black);
+            margin: -10px 0 0 0; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* --- Owner & Team Photos (Compact) --- */
+        .owner-photo, .team-photo {
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+            border: 4px solid var(--fuchsia); margin-bottom: 4px;
+        }
+        .owner-name, .team-name {
+            font-weight: bold; font-size: 1.3em; margin-top: 0;
+        }
+        .team-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        
+        /* --- Services Section --- */
+        .services-list {
+            list-style: '💅'; padding-left: 30px; margin: 0 auto; max-width: 500px;
+            text-align: left;
+        }
+        .services-list li { padding-left: 10px; margin-bottom: 5px; }
+
+        /* --- NEW: Gallery Section --- */
+        .gallery-container {
+            display: flex; justify-content: center;
+            gap: 15px; flex-wrap: wrap;
+        }
+        .gallery-container img {
+            width: 100%; max-width: 250px; height: auto;
+            border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- Why Choose Us Section --- */
+        .reasons-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .reason-card {
+            background: var(--clean-white); padding: 15px; border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); flex-basis: 250px;
+        }
+        .reason-card h3 { color: var(--fuchsia); margin: 0 0 8px 0; }
+        
+        /* --- FAQ Section --- */
+        .faq-item {
+            max-width: 600px; margin: 0 auto 12px auto; text-align: left;
+            border-left: 4px solid var(--fuchsia); padding: 10px 15px;
+            background-color: var(--clean-white);
+        }
+        .faq-item h3 { margin: 0 0 5px 0; color: var(--charcoal-black); }
+
+        /* --- Contact Section --- */
+        #contacto { background-color: var(--charcoal-black); color: var(--off-white); }
+        #contacto .section-title { color: var(--off-white); }
+        .contact-info { list-style: none; padding: 0; }
+        .contact-info li { margin-bottom: 8px; }
+        .contact-info strong { color: var(--fuchsia); }
+        .contact-info a { color: var(--off-white); text-decoration: none; }
+
+        /* --- Helper/Responsive Styles --- */
+        .hamburger-icon { cursor: pointer; display: inline-block; padding: 10px; }
+        .hamburger-icon .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.4s; }
+        #nav-menu { display: none; list-style: none; padding: 0; margin: 5px 0 0 0; }
+        #nav-menu li { padding: 8px 0; }
+        @media (min-width: 768px) {
+            .hamburger-icon { display: none; }
+            #nav-menu { display: flex; justify-content: center; gap: 30px; }
+        }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 3.5em; }
+            .hero-subtitle { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="hamburger-icon" id="hamburger-btn"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#propietaria">Propietaria</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#elegirnos">Por Qué Elegirnos</a></li>
+                <li><a href="#faq">Preguntas</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="titulo" class="section">
+            <h1 class="hero-title">Miss Time</h1>
+            <p class="hero-subtitle">Centro de Estética y Uñas &middot; Manises</p>
+        </section>
+
+        <section id="propietaria" class="section bg-gray">
+            <img src="JefeFoto.webp" alt="Foto de la propietaria" class="owner-photo" width="400" height="400">
+            <p class="owner-name">Sofía</p>
+        </section>
+
+        <section id="servicios" class="section">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <ul class="services-list">
+                <li>Manicura y Pedicura Clásica / Permanente</li>
+                <li>Uñas Esculpidas en Gel y Acrílico</li>
+                <li>Nail Art y Diseños Exclusivos</li>
+                <li>Tratamientos de Hidratación (Parafina)</li>
+                <li>Lifting y Tinte de Pestañas</li>
+                <li>Depilación Facial con Hilo</li>
+            </ul>
+        </section>
+
+        <!-- ======== NEW GALLERY SECTION ======== -->
+        <section id="galeria" class="section bg-gray">
+            <h2 class="section-title">Nuestros Trabajos</h2>
+            <div class="gallery-container">
+                <img src="Nails1.webp" alt="Diseño de uñas profesional" width="400" height="400">
+                <img src="Nails2.webp" alt="Manicura elegante" width="400" height="400">
+                <img src="Nails3.webp" alt="Nail art creativo" width="400" height="400">
+            </div>
+        </section>
+        
+        <section id="elegirnos" class="section">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <div class="reasons-container">
+                <div class="reason-card"><h3>Higiene y Calidad</h3><p>Utilizamos productos de primeras marcas y esterilizamos nuestro material para garantizar tu seguridad y los mejores resultados.</p></div>
+                <div class="reason-card"><h3>Profesionales Apasionadas</h3><p>Nuestro equipo está en constante formación para ofrecerte las últimas tendencias y técnicas del sector con un trato cercano.</p></div>
+                <div class="reason-card"><h3>Ambiente Único</h3><p>Hemos creado un espacio para que te relajes y disfrutes de tu momento de cuidado personal. ¡Tu bienestar es nuestra prioridad!</p></div>
+            </div>
+        </section>
+
+        <section id="faq" class="section bg-gray">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item"><h3>¿Es necesario pedir cita previa?</h3><p>Sí, recomendamos siempre pedir cita para poder asegurarte un hueco y ofrecerte la mejor atención sin esperas.</p></div>
+                <div class="faq-item"><h3>¿Cuánto tiempo duran las uñas de gel?</h3><p>Con un cuidado adecuado, las uñas de gel pueden durar perfectas entre 3 y 4 semanas, momento en el que se recomienda un relleno.</p></div>
+                <div class="faq-item"><h3>¿Qué formas de pago aceptáis?</h3><p>Aceptamos pago en efectivo y con tarjeta de crédito/débito.</p></div>
+            </div>
+        </section>
+
+        <section id="equipo" class="section">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <div class="team-container">
+                <!-- The Team Section Photo Links are here. -->
+                <div class="team-member"><img src="TeamMember1.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Lucía</p></div>
+                <div class="team-member"><img src="TeamMember2.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">María</p></div>
+                <div class="team-member"><img src="TeamMember3.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Carmen</p></div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+            <h2 class="section-title">Contacto</h2>
+            <ul class="contact-info">
+                <li><strong>Nombre:</strong> Miss Time</li>
+                <li><strong>Dirección:</strong> C/ dels Sants Just i Pastor, 9, 46940 Manises, Valencia</li>
+                <li><strong>Teléfono / WhatsApp:</strong> <a href="tel:633419370">633 41 93 70</a></li>
+                <li><strong>Email:</strong> <a href="mailto:info.misstime@email.com">info.misstime@email.com</a></li>
+                <li><strong>Horario:</strong> Lunes a Sábado de 10:00 a 20:00. Domingos cerrado.</li>
+            </ul>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f0f0f0; padding: 15px; text-align: center; border-top: 1px solid #ccc; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <p style="margin: 0 15px 10px 0; color: #333;">
+                <strong>Aviso Sobre Cookies:</strong> Este sitio web no utiliza cookies. Sin embargo, nuestro proveedor de alojamiento utiliza cookies esenciales y funcionales para operar este sitio y prestar sus servicios. Al continuar utilizando este sitio, acepta el uso de cookies por parte de nuestro proveedor de alojamiento.
+            </p>
+            <div>
+                <button id="accept-cookies" style="background-color: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Aceptar</button>
+                <button id="decline-cookies" style="background-color: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Rechazar</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+        hamburgerBtn.addEventListener('click', () => { navMenu.style.display = (navMenu.style.display === 'block') ? 'none' : 'block'; });
+        navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth < 768) { navMenu.style.display = 'none'; } }); });
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const declineBtn = document.getElementById('decline-cookies');
+        function hideBanner() { cookieBanner.style.display = 'none'; }
+        acceptBtn.addEventListener('click', hideBanner);
+        declineBtn.addEventListener('click', hideBanner);
+    </script>
+</body>
+</html>
